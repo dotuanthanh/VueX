@@ -1,12 +1,17 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
+<sign-in />
+<vue-x/>
 </template>
 
 <script>
+import SignIn from './components/SignIn.vue'
+import VueX from './components/VueX.vue'
 
 export default {
   name: 'App',
   components: {
+    SignIn,
+    VueX
 
   }
 }
