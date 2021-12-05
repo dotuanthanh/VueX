@@ -1,19 +1,21 @@
 <template>
 <sign-in />
-<vue-x/>
+<!-- <vue-x/> -->
+<div>
+ 
+</div>
 </template>
 
 <script>
 import SignIn from './components/SignIn.vue'
-import VueX from './components/VueX.vue'
-
+// import VueX from './components/VueX.vue'
 export default {
   name: 'App',
   components: {
     SignIn,
-    VueX
-
-  }
+    // VueX
+    
+     }
 }
 </script>
 

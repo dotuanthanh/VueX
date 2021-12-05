@@ -1,9 +1,11 @@
 # vue-app
-
+ VueX , router and authentication :))
 ## Project setup
 ```
 npm install
 ```
+## install vueX
+npm install vuex --save
 
 ### Compiles and hot-reloads for development
 ```
