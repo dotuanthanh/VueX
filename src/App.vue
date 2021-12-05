@@ -1,6 +1,7 @@
 <template>
 <sign-in />
 <!-- <vue-x/> -->
+<router-view></router-view>
 <div>
  
 </div>

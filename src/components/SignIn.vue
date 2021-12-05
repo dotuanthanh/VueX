@@ -6,7 +6,8 @@
     <hr>
 
     <label for="username"><b>Username</b></label>
-    <input type="text" placeholder="Enter username" :maxlength="5" minlength="20" name="username" v-model="username" required>
+    <input type="text" @blur="checkUserName()" placeholder="Enter username" :maxlength="5" minlength="20" name="username" v-model="username" required>
+    <span class='error' v-if="usernameError">{{usernameError}} </span><br>
 
     <label for="psw"><b>Password</b></label>
     <input type="password" placeholder="Enter Password" name="psw" v-model="password1"  minlength="5" maxlength="8" required>
@@ -22,7 +23,7 @@
   </div>
 
   <div class="container ">
-    <p>Already have an account? <a href="#">Sign in</a>.</p>
+    <p>Already have an account? <router-link to='/login'> Log in</router-link> </p>
   </div>
 </form>
 </template>
@@ -34,33 +35,52 @@ data(){
     username:'',
     password1:'',
     password2:'',
-    errors:[]
+    errors:[],
+    usernameError:''
   }
 },
 beforeUpdate(){
-  console.log(this.username[0])
-},
+  console.log(this.username)
+  console.log(this.password1)
+  console.log(this.password2)
+  },
 methods:{
   submit(e){
     e.preventDefault();
     this.errors = []
-    if(this.password1.length<5 || this.password2.length <5 ){
-     this.errors.push('password require min length : 5')
-      return;
+    if(this.submitValidator()){
+      alert('success')
+    let user = this.username + this.password1;
+    localStorage.setItem('user',user)
     }
-    this.checkContain(this.password1)
+    } ,
+   submitValidator(){
+  if(this.username.trim()=='' || this.username.length <5){
+      this.errors.push('username require min length : 5')
+     return false ;
+  }
+  if(this.password1.length<5 || this.password2.length <5 ){
+     this.errors.push('password require min length : 5')
+      return false;
+    }
+    let upper_case_array=['A','B','C','D','E','F','G','H','A','P','W','E','R','T','Y','U','I','O','V','S','J','K','L','M','N']
+    if(upper_case_array.indexOf(this.password1[0])==-1 ||upper_case_array.indexOf(this.password2[0])==-1  ){
+      this.errors.push('The fist letter of password must be uppercase')
+      return false;
+     }
     if(!(this.password1===this.password2)){
      this.errors.push('password confirm not match')
-     return;
+     return false;
     }
-  } ,
-  checkContain(value){
-    let upper_case_array=['A','B','C','D','E','F','G','H']
-    if(upper_case_array.indexOf(value[0])==-1){
-    this.errors.push('The fist letter of password must be uppercase')
-     }
-    return false;
+     return true;
+   }
+    ,
+    checkUserName(){
+    this.usernameError=''
+    if(this.username.trim() ==''){
+    this.usernameError = 'Username is require'
   }
+},
 }
 }
 </script>
