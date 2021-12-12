@@ -1,19 +1,22 @@
 <template>
-<sign-in />
+<!-- <sign-in /> -->
 <!-- <vue-x/> -->
+<main>
 <router-view></router-view>
-<div>
- 
-</div>
+<!-- <user /> -->
+
+</main>
 </template>
 
 <script>
-import SignIn from './components/SignIn.vue'
+// import User from './components/user/User.vue'
+// import SignIn from './components/SignIn.vue'
 // import VueX from './components/VueX.vue'
 export default {
   name: 'App',
   components: {
-    SignIn,
+    // User
+    // SignIn,
     // VueX
     
      }

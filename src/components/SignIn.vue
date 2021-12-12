@@ -1,9 +1,9 @@
 <template>
-  <form action="action_page.php">
+  <form action="what">
   <div class="container">
-    <h1>Register</h1>
+    <!-- <h1>Register</h1>
     <p>Please fill in this form to create an account.</p>
-    <hr>
+    <hr> -->
 
     <label for="username"><b>Username</b></label>
     <input type="text" @blur="checkUserName()" placeholder="Enter username" :maxlength="5" minlength="20" name="username" v-model="username" required>
@@ -36,7 +36,7 @@ data(){
     password1:'',
     password2:'',
     errors:[],
-    usernameError:''
+    usernameError:'',
   }
 },
 beforeUpdate(){
@@ -64,7 +64,7 @@ methods:{
       return false;
     }
     let upper_case_array=['A','B','C','D','E','F','G','H','A','P','W','E','R','T','Y','U','I','O','V','S','J','K','L','M','N']
-    if(upper_case_array.indexOf(this.password1[0])==-1 ||upper_case_array.indexOf(this.password2[0])==-1  ){
+    if(upper_case_array.indexOf(this.password1[0])==-1 || upper_case_array.indexOf(this.password2[0])==-1  ){
       this.errors.push('The fist letter of password must be uppercase')
       return false;
      }
@@ -85,7 +85,7 @@ methods:{
 }
 </script>
 
-<style>
+<style scoped>
 * {box-sizing: border-box}
 
 /* Add padding to containers */

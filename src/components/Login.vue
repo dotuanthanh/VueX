@@ -9,10 +9,11 @@
       <p class="message">Already registered? <a href="#">Sign In</a></p>
     </form> -->
     <form class="login-form">
-      <input type="text" placeholder="username"/>
-      <input type="password" placeholder="password"/>
-      <button>login</button>
-      <p class="message">Not registered? <a href="#">Create an account</a></p>
+      <input v-model="username" type="text" placeholder="username"/>
+      <input v-model="password"  type="password" placeholder="password"/>
+      <button @click="login">login</button>
+      <span v-if="errors">{{errors}}</span>
+      <p class="message">Not registered? <router-link to="/signin" >an account </router-link> </p>
     </form>
   </div>
 </div>
@@ -20,11 +21,31 @@
 
 <script>
 export default {
- 
+ data(){
+   return {
+     username :'',
+     password:'',
+     errors:''
+   } 
+ }
+ ,
+ methods:{
+
+   login(e){
+     e.preventDefault()
+     this.errors = ''
+     if(!this.username || !this.password){
+       this.errors = 'two field is required'
+      return localStorage.setItem('username',null);
+     }
+     console.log('login success ne')
+       localStorage.setItem('username',this.username);
+   }
+ }
 }
 </script>
 
-<style>
+<style scoped>
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
 .login-page {

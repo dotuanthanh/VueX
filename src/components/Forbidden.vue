@@ -14,12 +14,12 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 html { box-sizing: border-box; }
 
-*,
+/* *,
 *::before,
-*::after { box-sizing: inherit; }
+*::after { box-sizing: inherit; } */
 
 body * {
   margin: 0;
