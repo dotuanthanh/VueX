@@ -4,6 +4,8 @@ import Forbidden from "./components/Forbidden.vue";
 import NotFound from "./components/NotFound.vue";
 import SignIn from "./components/SignIn.vue";
 import Game from "./components/Game/Game.vue";
+import Home from "./components/Home.vue"
+import Product from "./components/Page/ProductsList.vue"
 const routers = [
   //can use this one  to be catch all
   // { path: '/:notFound(.*)', component: NotFound }
@@ -30,6 +32,14 @@ const routers = [
   {
     path: "/403",
     component: Forbidden,
+  },
+  {
+    path: "/home",
+    component: Home,
+  },
+  {
+    path: "/products",
+    component: Product,
   }
 ];
 
