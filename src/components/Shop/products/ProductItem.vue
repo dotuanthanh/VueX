@@ -24,7 +24,8 @@ export default {
   methods: {
     addToCart() {
       const data ={
-        id : this.id
+        id : this.id,
+        qty : 1
       }
       this.$store.dispatch('theCart/addToCart',data)
     },
