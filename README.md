@@ -1,5 +1,6 @@
 # vue-app
- VueX , vue-router and authentication :v
+ VueX , vue-router and authentication
+   
 ## Project setup
 ```
 npm install
