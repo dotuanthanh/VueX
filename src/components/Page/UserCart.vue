@@ -1,10 +1,11 @@
 <template>
+<button @click="test">Cliclaaa </button>
   <section>
     <h2>Your Cart</h2>
-    <h3>Total Amount: <base-badge mode="elegant">${{cartTotal }}</base-badge></h3>
+    <h3>Total Amount: <base-badge mode="elegant">${{cartTotal}}</base-badge></h3>
     <ul>
       <cart-item
-        v-for="item in products"
+        v-for="item in items"
         :key="item.productId"
         :prod-id="item.id"
         :title="item.title"
@@ -18,21 +19,41 @@
 
 <script>
 import CartItem from '../Shop/cart/CartItem.vue';
-
+import {mapGetters} from "vuex"
 export default {
-data (){
-  return {
-    products : [],
-    cartTotal : 0
-  }
-},
+// data (){
+//   return {
+//     cartTotal : 0,
+//     products :[]
+//   }
+// },
   components: {
     CartItem,
   },
-  created(){
-   console.log("created")
-   this.products = this.$store.getters['theCart/getItems'] 
-   this.cartTotal = this.$store.getters['theCart/getTotal'].toFixed(2)
+
+//code below is not reactive when use vueX ??
+
+// methods :{
+//   init(){
+//    this.products = this.$store.getters['theCart/getItems'] 
+//    this.cartTotal = this.$store.getters['theCart/getTotal'].toFixed(2)
+//   },
+//   test(){
+//     console.log(this.products)
+//     console.log(this.$store.getters['theCart/getItems'] )
+//     console.log(this.products==this.$store.getters['theCart/getItems'])
+//   }
+// },
+//   created(){
+//   this.init()
+//   },
+  computed:{
+   ...mapGetters({
+        items: 'theCart/getItems'
+    }),
+    cartTotal(){
+      return this.$store.getters['theCart/getTotal'].toFixed(2)
+    }
   }
 };
 </script>

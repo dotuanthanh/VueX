@@ -16,7 +16,7 @@
         </div>
       </div>
       <div class="item__total">Total: ${{ itemTotal }}</div>
-      <button @click="remove">Remove</button>
+      <button @click="remove">Remove</button> 
     </div>
   </li>
 </template>

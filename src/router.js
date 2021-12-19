@@ -14,7 +14,7 @@ const routers = [
     path: "/game",
     component: Game,
     meta:{
-      isAuthen : true
+      isRequiredAuthen : true
     },
   },
   {
@@ -45,6 +45,9 @@ const routers = [
   {
     path: "/cart",
     component: UserCart,
+    //    meta:{
+    //   isRequiredAuthen : true
+    // }
   }
 ];
 
@@ -57,7 +60,7 @@ const router = createRouter({
   linkActiveClass: "active",
 });
 router.beforeEach((to, from, next) => {
- if(to.meta.isAuthen){
+ if(to.meta.isRequiredAuthen){
    console.log(to.path)
    if(localStorage.getItem('username')!='thanhdt'){
       next("/403");
