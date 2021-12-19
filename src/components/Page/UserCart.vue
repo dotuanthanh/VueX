@@ -1,15 +1,15 @@
 <template>
   <section>
     <h2>Your Cart</h2>
-    <h3>Total Amount: <base-badge mode="elegant">${{ cartTotal }}</base-badge></h3>
+    <h3>Total Amount: <base-badge mode="elegant">${{cartTotal }}</base-badge></h3>
     <ul>
       <cart-item
-        v-for="item in cart.items"
+        v-for="item in products"
         :key="item.productId"
-        :prod-id="item.productId"
+        :prod-id="item.id"
         :title="item.title"
         :image="item.image"
-        :price="item.price"
+        :price="item.prices"
         :qty="item.qty"
       ></cart-item>
     </ul>
@@ -17,17 +17,22 @@
 </template>
 
 <script>
-import CartItem from '../components/cart/CartItem.vue';
+import CartItem from '../Shop/cart/CartItem.vue';
 
 export default {
-  inject: ['cart'],
+data (){
+  return {
+    products : [],
+    cartTotal : 0
+  }
+},
   components: {
     CartItem,
   },
-  computed: {
-    cartTotal() {
-      return this.cart.total.toFixed(2);
-    }
+  created(){
+   console.log("created")
+   this.products = this.$store.getters['theCart/getItems'] 
+   this.cartTotal = this.$store.getters['theCart/getTotal'].toFixed(2)
   }
 };
 </script>

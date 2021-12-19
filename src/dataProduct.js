@@ -26,7 +26,7 @@ export default [
       price: 129.99,
     },
     {
-      id: 'p3',
+      id: 'p4',
       image:
         'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg/640px-Good_Food_Display_-_NCI_Visuals_Online.jpg',
       title: 'Food Box I ',
@@ -35,7 +35,7 @@ export default [
       price: 6.99,
     },
     {
-        id: 'p4',
+        id: 'p5',
         image:
           'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg/640px-Good_Food_Display_-_NCI_Visuals_Online.jpg',
         title: 'Food Box II',

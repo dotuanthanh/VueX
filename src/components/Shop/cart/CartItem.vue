@@ -25,20 +25,19 @@
 export default {
   // inject: ['removeProductFromCart'],
   props: ['prodId', 'title', 'image', 'price', 'qty'],
-  // computed: {
-  //   itemTotal() {
-  //     return (this.price * this.qty).toFixed(2);
-  //   }
-  // },
-  // methods: {
-    // remove() {
-    //   this.removeProductFromCart(this.prodId);
-    // }
-     remove() {
-      this.removeProductFromCart(this.prodId);
+  computed: {
+    itemTotal() {
+      return (this.price * this.qty).toFixed(2);
     }
-  // }
-};
+  },
+  methods: {
+    remove() {
+      const rq = {id : this.prodId}
+      this.$store.dispatch('theCart/remove',rq)
+    }
+  }
+
+  }
 </script>
 
 <style scoped>

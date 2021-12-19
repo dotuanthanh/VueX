@@ -25,7 +25,10 @@ export default {
     addToCart() {
       const data ={
         id : this.id,
-        qty : 1
+        qty : 1,
+        prices : this.price,
+        image: this.image,
+        title : this.title
       }
       this.$store.dispatch('theCart/addToCart',data)
     },

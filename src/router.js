@@ -6,6 +6,7 @@ import SignIn from "./components/SignIn.vue";
 import Game from "./components/Game/Game.vue";
 import Home from "./components/Home.vue"
 import Product from "./components/Page/ProductsList.vue"
+import UserCart from "./components/Page/UserCart.vue"
 const routers = [
   //can use this one  to be catch all
   // { path: '/:notFound(.*)', component: NotFound }
@@ -40,6 +41,10 @@ const routers = [
   {
     path: "/products",
     component: Product,
+  },
+  {
+    path: "/cart",
+    component: UserCart,
   }
 ];
 

@@ -1,10 +1,14 @@
 export default {
   update(state,playload){
    let item = state.products.find(item => item.id === playload.id)
-   item.qty = playload.qty
+   item.qty = item.qty + 1  
+   console.log('update')
   },
   delete(state,playload){
+    console.log(playload)
     state.products = state.products.filter(item => item.id != playload.id)
+    console.log('remove')
+    console.log( state.products)
   },
   create(state,playload){ 
     let productsState = state.products;
@@ -14,9 +18,9 @@ export default {
       productsState.push(playload) 
     }
     else{
-      console.log('Da ton tai')
+      let item = state.products.find(item => item.id === playload.id)
+      item.qty = item.qty + 1 
       console.log(productsState)
-      console.log(playload)
     }
   }
 }
